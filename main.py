@@ -1,17 +1,10 @@
+import collections
 
 def word_count(strg):
     return len(strg.split())
 
 def letter_count(strg):
-    lc = {}
-    words = strg.lower().split()
-    for word in words:
-        for letter in word:
-            if letter in lc:
-                lc[letter] += 1
-            else:
-                lc[letter] = 1
-    return lc
+    return collections.Counter(c for word in strg.lower().split() for c in word)
 
 def main():
     file_contents = ''
